@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal-terminal-slide</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="plugin/reveal-terminal-slide.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>reveal-terminal-slide</h2>
+        </section>
+
+        <section data-run-in-terminal="code/node-example.js">
+          <h2>Node (With Time!)</h2>
+        </section>
+
+        <section data-run-in-terminal="code/node-error-example.js">
+          <h2>Node (With An Error!)</h2>
+        </section>
+
+        <section
+          data-run-in-terminal="code/ruby-argv-example.rb"
+          data-run-in-terminal-bin="ruby"
+          data-run-in-terminal-args="the quick 'brown fox'"
+        >
+          <h2>Ruby (With Arguments!)</h2>
+        </section>
+
+        <section
+          data-run-in-terminal="code/python-example.py"
+          data-run-in-terminal-bin="python"
+        >
+          <h2>Python (Isn't Whitelisted!)</h2>
+        </section>
+
+        <section data-run-in-terminal="../far-away.js">
+          <h2>Outside Public Directory (Not Allowed!)</h2>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'plugin/reveal-terminal-slide.js', async: true,
+          callback: function() {
+            TerminalSlides.init({defaultBin: 'node'});
+          } },
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>

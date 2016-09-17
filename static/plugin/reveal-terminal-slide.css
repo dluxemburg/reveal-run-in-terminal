@@ -1,0 +1,52 @@
+section[data-run-in-terminal] {
+  height: 100%;
+  top: 0;
+}
+
+section[data-run-in-terminal] .container {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+section[data-run-in-terminal] .title {
+  float: left;
+  font-size: 0.5em;
+  color: gray;
+  font-family: monospace;
+  text-indent: 3em;
+}
+
+section[data-run-in-terminal] pre {
+  width: 100%;
+  white-space: pre-wrap;
+  background: none;
+  box-shadow: none;
+  margin: 0px;
+}
+
+section[data-run-in-terminal] pre.code {
+  padding: 0.5em 0 1em;
+  counter-reset: line;
+  padding-left: 3em;
+  width: 90%;
+}
+
+section[data-run-in-terminal] pre.code span.line:before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  border-right: 1px solid gray;
+  padding: 0 .25em 0 0;
+  text-align: right;
+  min-width: 1.5em;
+  color: gray;
+  position: absolute;
+  left: 0;
+}
+
+section[data-run-in-terminal] pre.term {
+  padding-top: 1em;
+  border-top: 1px solid gray;
+}
+
+section.no-run[data-run-in-terminal] pre.term { display: none; }

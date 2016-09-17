@@ -1,0 +1,19 @@
+{
+  "name": "reveal-terminal-slide",
+  "version": "1.0.0",
+  "description": "Show and execute code in your presentation",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "reveal.js": "^3.3.0"
+  },
+  "scripts": {
+    "start": "node demo/app.js",
+    "build": "browserify --debug src/reveal-terminal-slide.js > static/plugin/reveal-terminal-slide.js"
+  },
+  "author": "Daniel Luxemburg",
+  "license": "ISC"
+}
