@@ -1,16 +1,20 @@
 #reveal-terminal-slide
 
-Add executable code examples to you [reveal.js](https://github.com/hakimel/reveal.js/#revealjs) presentation. Looks like this:
+Add executable code examples to you [reveal.js](https://github.com/hakimel/reveal.js/#revealjs) presentation.
+
+Tabbing between keynote and a terminal looks terrible and it is impossible to type with people watching anyway.
+
+Looks like this:
 
 ![](https://github.com/dluxemburg/reveal-terminal-slide/blob/master/demo.gif?raw=true)
 
-Tabbing between keynote and a terminal looks terrible and it is impossible to type with people watching anyway.
+_**IMPORTANT NOTE**_: This, um, exposes a URL that can be used to execute user-provided commands on your machine. There are a few measures taken to restrict this to its intended use, but it's almost certainly still exploitable somehow. Be careful!
 
 ##Usage
 
 ###Run the Server
 
-The plugin requires that you presentation be served by [Express](https://expressjs.com/) server. A minimal version looks like this:
+The plugin requires that your presentation be served by [Express](https://expressjs.com/). A minimal version looks like this:
 
 ```javascript
 const express = require('express');
@@ -28,8 +32,8 @@ Options for `revealTerminalSlides`:
 
 - **`publicPath`** (_default_: `'.'`): Directory to serve files and load executed code from.
 - **`commandRegex`** (_default_: `/\S*/`): Regex that executable must match. This is a safety measure to make sure you don't run anything you didn't intend to.
-- **`allowRemote`** (_default_: `false`): Allow command-execution request from non-localhost sources. Probably don't ever do this.
-- **`log`** (_default_: `false`): Whether to log executed commands (along with PID and exist code) to the server console.
+- **`allowRemote`** (_default_: `false`): Allow command-execution requests from non-localhost sources. Probably don't ever do this.
+- **`log`** (_default_: `false`): Whether to log executed commands (along with PID and exit code) to the server console.
 
 The server handles exposing the plugin's client-side JS and CSS dependencies. It's up to you make sure reveal.js files are exposed (the above is a good approach). You can keep your own source files (including reveal.js ones if you're vendoring them) in the public path reveal-terminal-slide uses, but you do not have to.
 
