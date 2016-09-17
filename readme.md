@@ -2,7 +2,7 @@
 
 Add executable code examples to you [reveal.js](https://github.com/hakimel/reveal.js/#revealjs) presentation.
 
-Tabbing between keynote and a terminal looks terrible and it is impossible to type with people watching anyway.
+Tabbing between Keynote and a terminal looks terrible and it is impossible to type with people watching anyway.
 
 Looks like this:
 
@@ -105,6 +105,12 @@ So, the process goes:
 ###Client Code
 
 `npm run build` browserifies it.
+
+###Notes
+
+- `/reveal-run-in-terminal` is implemented as a `GET` request in order to use the `EventSource` API on the client to stream process output. Yes, socket.io something something but this avoids additional dependencies and is pretty simple.
+- It would be cool to do this for Node specifically using the `vm` module instead of spawning a process but I couldn't figure out how to capture `stderr`/`stdout`/process termination in a way that reliably mimicked what running a script would do.
+- Maybe it would be better to use `#!` syntax at the top of files to specify how to run them instead of requiring that option per-slide? I didn't want to require the code files to be executable or have to manipulate them before putting them on the page.
 
 ###Goals
 
