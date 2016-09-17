@@ -10,11 +10,7 @@ module.exports = (params, fn) => {
       if (e.data) {
         let messages = JSON.parse(e.data).messages;
         messages.forEach(err => console.error(err));
-
-        let error = new Error(`${messages.join(', ')}`);
-        error.messages = messages;
-
-        reject(error);
+        reject(new Error(`${messages.join(', ')}`));
       } else {
         reject(e);
       }

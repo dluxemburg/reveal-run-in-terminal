@@ -92,7 +92,7 @@ The slide above will initially display code from `{publicPath}/code/some-great-e
 So, the process goes:
 
 - Advance to slide (empty prompt)
-- Advance to command partial (prompt with command)
+- Advance to command fragment (prompt with command)
 - Advance to command execution (output incrementally added after command)
 - Advance to next silde
 
