@@ -1,4 +1,4 @@
-#reveal-terminal-slide
+#reveal-run-in-terminal
 
 Add executable code examples to you [reveal.js](https://github.com/hakimel/reveal.js/#revealjs) presentation.
 
@@ -6,7 +6,7 @@ Tabbing between keynote and a terminal looks terrible and it is impossible to ty
 
 Looks like this:
 
-![](https://github.com/dluxemburg/reveal-terminal-slide/blob/master/demo.gif?raw=true)
+![](https://github.com/dluxemburg/reveal-run-in-terminal/blob/master/demo.gif?raw=true)
 
 _**IMPORTANT NOTE**_: This, um, exposes a URL that can be used to execute user-provided commands on your machine. There are a few measures taken to restrict this to its intended use, but it's almost certainly still exploitable somehow. Be careful!
 
@@ -18,11 +18,11 @@ The plugin requires that your presentation be served by [Express](https://expres
 
 ```javascript
 const express = require('express');
-const revealTerminalSlides = require('reveal-terminal-slides');
+const runInTerminal = require('reveal-run-in-terminal');
 
 let app = express();
 
-app.use(revealTerminalSlides());
+app.use(runInTerminal());
 app.use(express.static('node_modules/reveal.js'));
 
 app.listen(5000);
@@ -35,12 +35,12 @@ Options for `revealTerminalSlides`:
 - **`allowRemote`** (_default_: `false`): Allow command-execution requests from non-localhost sources. Probably don't ever do this.
 - **`log`** (_default_: `false`): Whether to log executed commands (along with PID and exit code) to the server console.
 
-The server handles exposing the plugin's client-side JS and CSS dependencies. It's up to you make sure reveal.js files are exposed (the above is a good approach). You can keep your own source files (including reveal.js ones if you're vendoring them) in the public path reveal-terminal-slide uses, but you do not have to.
+The server handles exposing the plugin's client-side JS and CSS dependencies. It's up to you make sure reveal.js files are exposed (the above is a good approach). You can keep your own source files (including reveal.js ones if you're vendoring them) in the public path reveal-run-in-terminal uses, but you do not have to.
 
 ###Include the CSS
 
 ```html
-<link rel="stylesheet" href="plugin/reveal-terminal-slide.css">
+<link rel="stylesheet" href="plugin/reveal-run-in-terminal.css">
 ```
 
 ###Include the JS
@@ -52,8 +52,8 @@ Reveal.initialize({
   // some options
   dependencies: [
     {
-      src: 'plugin/reveal-terminal-slide.js',
-      callback: function() { TerminalSlides.init(); },
+      src: 'plugin/reveal-run-in-terminal.js',
+      callback: function() { RunInTerminal.init(); },
       async: true
     }
     // more plugins
@@ -61,9 +61,9 @@ Reveal.initialize({
 });
 ```
 
-Nothing will happen until `TerminalSlides#init` is called. You should also include the highlight plugin if you want code to be syntax highlighted.
+Nothing will happen until `RunInTerminal#init` is called. You should also include the highlight plugin if you want code to be syntax highlighted.
 
-`TerminalSlides#init` options:
+`RunInTerminal#init` options:
 
 - **`defaultBin`**: Default value for the `data-run-in-terminal-bin` attribute of individual slides (the executable used to run each code example).
 
@@ -78,7 +78,7 @@ Nothing will happen until `TerminalSlides#init` is called. You should also inclu
 </section>
 ```
 
-The `section` elements for reveal-terminal-slide slides use these attributes:
+The `section` elements for reveal-run-in-terminal slides use these attributes:
 
 - **`data-run-in-terminal`** (_required_): Path to the code to display and run.
 - **`data-run-in-terminal-bin`** (_required unless `defaultBin` was passed to `TerminalSlides#init`_): The executable used to run the code example.

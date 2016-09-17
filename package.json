@@ -1,5 +1,5 @@
 {
-  "name": "reveal-terminal-slide",
+  "name": "reveal-run-in-terminal",
   "version": "1.0.0",
   "description": "Show and execute code in your presentation",
   "main": "index.js",
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "node demo/app.js",
-    "build": "browserify --debug src/reveal-terminal-slide.js > static/plugin/reveal-terminal-slide.js"
+    "build": "browserify --debug src/reveal-run-in-terminal.js > static/plugin/reveal-run-in-terminal.js"
   },
   "author": {
     "name": "Daniel Luxemburg",
@@ -22,6 +22,6 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dluxemburg/reveal-terminal-slide.git"
+    "url": "git://github.com/dluxemburg/reveal-run-in-terminal.git"
   }
 }

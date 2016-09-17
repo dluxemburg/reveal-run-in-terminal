@@ -1,13 +1,13 @@
 const Slide = require('./slide');
 
-window.TerminalSlides = class {
+window.RunInTerminal = class {
   static init(options) {
-    let terminalSlides = new this(options);
-    terminalSlides.load();
+    let runInTerminal = new this(options);
+    runInTerminal.load();
 
     Reveal.addEventListener('fragmentshown', function(event) {
       if (!event.fragment.dataset.terminalFragment) return;
-      let slide = terminalSlides.forSection(event.fragment.parentElement);
+      let slide = runInTerminal.forSection(event.fragment.parentElement);
 
       if (event.fragment.dataset.terminalFragment === 'showCommand') {
         slide.renderCommand();
@@ -19,7 +19,7 @@ window.TerminalSlides = class {
 
     Reveal.addEventListener('fragmenthidden', function(event) {
       if (!event.fragment.dataset.terminalFragment) return;
-      let slide = terminalSlides.forSection(event.fragment.parentElement);
+      let slide = runInTerminal.forSection(event.fragment.parentElement);
 
       if (event.fragment.dataset.terminalFragment === 'showCommand') {
         slide.renderPrompt();
@@ -29,11 +29,11 @@ window.TerminalSlides = class {
     });
 
     Reveal.addEventListener('slidechanged', function(event) {
-      let slide = terminalSlides.forSection(event.currentSlide);
+      let slide = runInTerminal.forSection(event.currentSlide);
       terminalSlides.reload({except: [slide]});
     });
 
-    return terminalSlides;
+    return runInTerminal;
   }
 
   constructor(options) { this.options = options || {}; }

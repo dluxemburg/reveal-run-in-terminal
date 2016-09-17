@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal-terminal-slide</title>
+    <title>reveal-run-in-terminal</title>
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/black.css">
-    <link rel="stylesheet" href="plugin/reveal-terminal-slide.css">
+    <link rel="stylesheet" href="plugin/reveal-run-in-terminal.css">
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -26,7 +26,7 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <h2>reveal-terminal-slide</h2>
+          <h2>reveal-run-in-terminal</h2>
         </section>
 
         <section data-run-in-terminal="code/node-example.js">
@@ -68,9 +68,9 @@
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
-          { src: 'plugin/reveal-terminal-slide.js', async: true,
+          { src: 'plugin/reveal-run-in-terminal.js', async: true,
           callback: function() {
-            TerminalSlides.init({defaultBin: 'node'});
+            RunInTerminal.init({defaultBin: 'node'});
           } },
           { src: 'plugin/markdown/marked.js' },
           { src: 'plugin/markdown/markdown.js' },
