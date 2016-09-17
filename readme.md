@@ -2,6 +2,8 @@
 
 Add executable code examples to you [reveal.js](https://github.com/hakimel/reveal.js/#revealjs) presentation. Looks like this:
 
+![](https://github.com/dluxemburg/reveal-terminal-slide/blob/master/demo.gif?raw=true)
+
 Tabbing between keynote and a terminal looks terrible and it is impossible to type with people watching anyway.
 
 ##Usage
