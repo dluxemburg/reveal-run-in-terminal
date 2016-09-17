@@ -1,11 +1,11 @@
 const express = require('express');
 const path = require('path');
-const revealTerminalSlides = require('../index.js');
+const revealRunInTerminal = require('../index.js');
 
 let revealJsPath = path.resolve(__dirname, '../node_modules/reveal.js');
 let app = express();
 
-app.use(revealTerminalSlides({
+app.use(revealRunInTerminal({
   publicPath: __dirname,
   commandRegex: /node|ruby/,
   log: true

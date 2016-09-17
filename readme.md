@@ -6,7 +6,7 @@ Tabbing between keynote and a terminal looks terrible and it is impossible to ty
 
 Looks like this:
 
-![](https://github.com/dluxemburg/reveal-run-in-terminal/blob/master/demo.gif?raw=true)
+![](https://github.com/dluxemburg/reveal-run-in-terminal/blob/master/demo.gif?raw=true&v=2)
 
 _**IMPORTANT NOTE**_: This, um, exposes a URL that can be used to execute user-provided commands on your machine. There are a few measures taken to restrict this to its intended use, but it's almost certainly still exploitable somehow. Be careful!
 
@@ -18,17 +18,17 @@ The plugin requires that your presentation be served by [Express](https://expres
 
 ```javascript
 const express = require('express');
-const runInTerminal = require('reveal-run-in-terminal');
+const revealRunInTerminal = require('reveal-run-in-terminal');
 
 let app = express();
 
-app.use(runInTerminal());
+app.use(revealRunInTerminal());
 app.use(express.static('node_modules/reveal.js'));
 
 app.listen(5000);
 ```
 
-Options for `revealTerminalSlides`:
+Options for `revealRunInTerminal`:
 
 - **`publicPath`** (_default_: `'.'`): Directory to serve files and load executed code from.
 - **`commandRegex`** (_default_: `/\S*/`): Regex that executable must match. This is a safety measure to make sure you don't run anything you didn't intend to.
