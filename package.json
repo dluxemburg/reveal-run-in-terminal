@@ -14,6 +14,14 @@
     "start": "node demo/app.js",
     "build": "browserify --debug src/reveal-terminal-slide.js > static/plugin/reveal-terminal-slide.js"
   },
-  "author": "Daniel Luxemburg",
-  "license": "ISC"
+  "author": {
+    "name": "Daniel Luxemburg",
+    "email": "daniel.luxemburg@gmail.com",
+    "url": "http://dluxemburg.com"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dluxemburg/reveal-terminal-slide.git"
+  }
 }
