@@ -31,12 +31,10 @@ module.exports = class {
     return fetch(this.src)
       .then(response => response.text())
       .then(code => Highligher.highlight(code))
+      .then(html => html.replace(/\n/g, '<span class="line"></span>\n'))
       .then(html => this.code.innerHTML = html)
-      .then(() => {
-        this.addLineNumbers();
-        this.container.scrollTop = 0;
-        this.show();
-      });
+      .then(() => this.container.scrollTop = 0)
+      .then(() => this.show());
   }
 
   addElement(name, options) {
@@ -50,14 +48,6 @@ module.exports = class {
 
     (options.parent || this.section).appendChild(this[name]);
     return this[name];
-  }
-
-  addLineNumbers() {
-    [].forEach.call(this.code.querySelectorAll('br'), br => {
-      let span = document.createElement('span');
-      span.classList.add('line');
-      this.code.insertBefore(span, br);
-    });
   }
 
   scrollToBottom() {
