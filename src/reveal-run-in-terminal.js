@@ -30,7 +30,8 @@ window.RunInTerminal = class {
 
     Reveal.addEventListener('slidechanged', function(event) {
       let slide = runInTerminal.forSection(event.currentSlide);
-      terminalSlides.reload({except: [slide]});
+      if (slide && slide.clearOnShow) slide.renderPrompt();
+      runInTerminal.reload({except: [slide]});
     });
 
     return runInTerminal;

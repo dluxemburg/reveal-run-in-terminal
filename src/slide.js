@@ -1,4 +1,5 @@
 const runCommand = require('./run-command');
+const Highligher = require('./highligher');
 
 module.exports = class {
   constructor(section, options) {
@@ -29,12 +30,11 @@ module.exports = class {
     this.hide();
     return fetch(this.src)
       .then(response => response.text())
-      .then(text => this.code.innerText = text)
+      .then(code => Highligher.highlight(code))
+      .then(html => this.code.innerHTML = html)
       .then(() => {
-        if ('hljs' in window) hljs.highlightBlock(this.code);
         this.addLineNumbers();
         this.container.scrollTop = 0;
-        this.renderPrompt();
         this.show();
       });
   }
@@ -90,6 +90,10 @@ module.exports = class {
   }
 
   property(prop) { return this.section.dataset[prop]; }
+
+  get clearOnShow() {
+    return !this.showCommand.classList.contains('visible');
+  }
 
   get command() {
     let command = `${this.bin} ${this.src}`

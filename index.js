@@ -56,7 +56,7 @@ module.exports = (options) => {
       });
     });
 
-    ps.on('exit', (exit) => {
+    ps.on('exit', exit => {
       if (options.log) {
         console.log(`${ps.pid}: ${ps.spawnargs.join(' ')} (${exit})`);
       }
