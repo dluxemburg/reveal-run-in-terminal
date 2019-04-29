@@ -1,4 +1,4 @@
-#reveal-run-in-terminal
+# reveal-run-in-terminal
 
 Add executable code examples to you [reveal.js](https://github.com/hakimel/reveal.js/#revealjs) presentation.
 
@@ -10,9 +10,9 @@ Looks like this:
 
 _**IMPORTANT NOTE**_: This, um, exposes a URL that can be used to execute user-provided commands on your machine. There are a few measures taken to restrict this to its intended use, but it's almost certainly still exploitable somehow. Be careful!
 
-##Usage
+## Usage
 
-###Run the Server
+### Run the Server
 
 The plugin requires that your presentation be served by [Express](https://expressjs.com/). A minimal version looks like this:
 
@@ -37,13 +37,13 @@ Options for `revealRunInTerminal`:
 
 The server handles exposing the plugin's client-side JS and CSS dependencies. It's up to you make sure reveal.js files are exposed (the above is a good approach). You can keep your own source files (including reveal.js ones if you're vendoring them) in the public path reveal-run-in-terminal uses, but you do not have to.
 
-###Include the CSS
+### Include the CSS
 
 ```html
 <link rel="stylesheet" href="plugin/reveal-run-in-terminal.css">
 ```
 
-###Include the JS
+### Include the JS
 
 You should use reveal.js's plugin system, like this:
 
@@ -96,23 +96,23 @@ So, the process goes:
 - Advance to command execution (output incrementally added after command)
 - Advance to next silde
 
-##Developing
+## Developing
 
-###Demo Server
+### Demo Server
 
 `npm start` runs it on port 5000.
 
-###Client Code
+### Client Code
 
 `npm run build` browserifies it.
 
-###Notes
+### Notes
 
 - `/reveal-run-in-terminal` is implemented as a `GET` request in order to use the `EventSource` API on the client to stream process output. Yes, socket.io something something but this avoids additional dependencies and is pretty simple.
 - It would be cool to do this for Node specifically using the `vm` module instead of spawning a process but I couldn't figure out how to capture `stderr`/`stdout`/process termination in a way that reliably mimicked what running a script would do.
 - Maybe it would be better to use `#!` syntax at the top of files to specify how to run them instead of requiring that option per-slide? I didn't want to require the code files to be executable or have to manipulate them before putting them on the page.
 
-###Goals
+### Goals
 
 - Record command output so that live presentations can be given with static assets.
 - Colorize `stdout` vs `stderr`.
