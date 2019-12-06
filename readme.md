@@ -112,7 +112,7 @@ So, the process goes:
 - It would be cool to do this for Node specifically using the `vm` module instead of spawning a process but I couldn't figure out how to capture `stderr`/`stdout`/process termination in a way that reliably mimicked what running a script would do.
 - Maybe it would be better to use `#!` syntax at the top of files to specify how to run them instead of requiring that option per-slide? I didn't want to require the code files to be executable or have to manipulate them before putting them on the page.
 
-###Goals
+### Goals
 
 - Record command output so that live presentations can be given with static assets.
 - Colorize `stdout` vs `stderr`.
