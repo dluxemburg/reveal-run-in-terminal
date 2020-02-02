@@ -1,3 +1,7 @@
+‼️ **IMPORTANT NOTE**: _Not active!_ See [Riduidel/reveal-run-in-terminal](https://github.com/Riduidel/reveal-run-in-terminal) for a version under continuing development.
+
+---
+
 #reveal-run-in-terminal
 
 Add executable code examples to you [reveal.js](https://github.com/hakimel/reveal.js/#revealjs) presentation.
